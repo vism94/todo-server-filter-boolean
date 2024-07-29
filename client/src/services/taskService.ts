@@ -21,8 +21,8 @@ class TaskService {
     return this.api.delete(`/tasks/${id}`);
   }
 
-  async getTaskStatus(id: TaskType['id']): Promise<TaskType['done']> {
-    const { data } = await this.api.get<TaskType['done']>(`/tasks/${id}`);
+  async getTaskStatus(id: TaskType['id']): Promise<{ id: TaskType['id'], done: TaskType['done'] }> {
+    const { data } = await this.api.get<{ id: TaskType['id'], done: TaskType['done'] }>(`/tasks/${id}`);
     return data;
   }
 
